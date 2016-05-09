@@ -6,7 +6,7 @@ use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
 use KGzocha\Searcher\Context\Doctrine\QueryBuilderSearchingContext;
 use KGzocha\Searcher\Context\SearchingContextInterface;
-use KGzocha\Searcher\FilterImposer\QueryCriteriaBuilderInterface;
+use KGzocha\Searcher\QueryCriteriaBuilder\QueryCriteriaBuilderInterface;
 
 /**
  * Filter imposers that requires {@link QueryBuilderSearchingContext}
@@ -15,7 +15,7 @@ use KGzocha\Searcher\FilterImposer\QueryCriteriaBuilderInterface;
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
  * @package KGzocha\DoctrineSearcher\FilterImposer
  */
-abstract class AbstractQueryBuilderQueryCriteriaBuilder implements
+abstract class AbstractORMQueryCriteriaBuilder implements
     QueryCriteriaBuilderInterface
 {
     /**

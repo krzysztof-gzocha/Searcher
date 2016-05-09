@@ -14,7 +14,7 @@ use KGzocha\Searcher\QueryCriteriaBuilder\QueryCriteriaBuilderInterface;
  *
  * @package KGzocha\Searcher\FilterImposer\Doctrine
  */
-abstract class AbstractODMBuilderQueryCriteriaBuilder implements
+abstract class AbstractODMQueryCriteriaBuilder implements
     QueryCriteriaBuilderInterface
 {
     /**
