@@ -48,7 +48,7 @@ class ResultCollection implements ResultCollectionInterface
      */
     public function jsonSerialize()
     {
-        return $this->results;
+        return json_encode($this->results);
     }
 
     /**
