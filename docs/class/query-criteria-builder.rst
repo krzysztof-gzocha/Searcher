@@ -65,6 +65,7 @@ but don't worry those are very simple classes which are already implemented and 
 
 - ``AbstractORMQueryCriteriaBuilder`` - abstract QueryCriteriaBuilder class which will allow only ``QueryBuilderSearchingContext`` to be used (You can see there is no ``supportSearchingContext`` method).
 - ``QueryBuilderSearchingContext`` - searching context which will work only with Doctrine's ORM QueryBuilder
+- ``CachedQueryBuilderSearchingContext`` - searching context which will work only with Doctrine's ORM QueryBuilder with query caching enabled by default
 
 Whats the most important for us are the methods ``allowsCriteria()`` and of course ``buildCriteria()``.
 In ``allowsCriteria()`` we have to just specify that we want only care about *SpecificAgeQueryCriteria*.
