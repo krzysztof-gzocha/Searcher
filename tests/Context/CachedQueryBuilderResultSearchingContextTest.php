@@ -5,7 +5,7 @@ namespace KGzocha\Searcher\Test\Context;
 use KGzocha\Searcher\Context\Doctrine\CachedQueryBuilderResultSearchingContext;
 
 /**
- * @author Daniel Ribeiro <drgomesp@gmail.com>
+ * @author AbdElKader Bouadjadja <ak.bouadjadja@gmail.com>
  * @package KGzocha\Searcher\Test\Context
  */
 class CachedQueryBuilderResultSearchingContextTest extends \PHPUnit_Framework_TestCase
