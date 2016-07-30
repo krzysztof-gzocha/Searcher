@@ -3,6 +3,7 @@
 namespace KGzocha\Searcher\Test\Context\Doctrine;
 
 use KGzocha\Searcher\Context\Doctrine\ODMBuilderSearchingContext;
+use KGzocha\Searcher\Test\Context\MongoDBQueryStub;
 
 /**
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
@@ -36,21 +37,10 @@ class ODMBuilderSearchingContextTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $query = $this
-            ->getMockBuilder('\Doctrine\ODM\MongoDB\Query\Query')
-            ->disableProxyingToOriginalMethods()
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $mock
             ->expects($this->any())
             ->method('getQuery')
-            ->willReturn($query);
-
-        $query
-            ->expects($this->any())
-            ->method('execute')
-            ->willReturn($results);
+            ->willReturn(new MongoDBQueryStub($results));
 
         return $mock;
     }

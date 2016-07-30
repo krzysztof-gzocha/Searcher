@@ -4,6 +4,7 @@ namespace KGzocha\Searcher\Test\Context\Doctrine;
 
 use Doctrine\ORM\QueryBuilder;
 use KGzocha\Searcher\Context\Doctrine\QueryBuilderSearchingContext;
+use KGzocha\Searcher\Test\Context\QueryStub;
 
 /**
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
@@ -45,20 +46,10 @@ class QueryBuilderSearchingContextTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $query = $this
-            ->getMockBuilder('\Doctrine\ORM\AbstractQuery')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $query
-            ->expects($this->any())
-            ->method('getResult')
-            ->willReturn($results);
-
         $mock
             ->expects($this->any())
             ->method('getQuery')
-            ->willReturn($query);
+            ->willReturn(new QueryStub($results));
 
         return $mock;
     }
