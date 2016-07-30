@@ -38,6 +38,7 @@ class ODMBuilderSearchingContextTest extends \PHPUnit_Framework_TestCase
 
         $query = $this
             ->getMockBuilder('\Doctrine\ODM\MongoDB\Query\Query')
+            ->disableProxyingToOriginalMethods()
             ->disableOriginalConstructor()
             ->getMock();
 
