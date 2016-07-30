@@ -95,11 +95,19 @@ class ChainSearchTest extends \PHPUnit_Framework_TestCase
      */
     public function testTooLessCellValidation($numberOfCells, $expectedException)
     {
-        $array = array_fill(
-            0,
-            $numberOfCells,
-            new Cell($this->getSearcher(new CriteriaCollection()), $this->getTransformer([1]))
-        );
+        // array_fill(0,0,[]) is not working on PHP 5.5 and 5.4
+        if (0 == $numberOfCells) {
+            $array = [];
+        } else {
+            $array = array_fill(
+                0,
+                $numberOfCells,
+                new Cell(
+                    $this->getSearcher(new CriteriaCollection()),
+                    $this->getTransformer([1])
+                )
+            );
+        }
 
         if ($expectedException) {
             $this->setExpectedException('\InvalidArgumentException');
