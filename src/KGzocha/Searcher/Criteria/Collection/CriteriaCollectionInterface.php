@@ -16,7 +16,7 @@ interface CriteriaCollectionInterface extends \Countable, \IteratorAggregate
      * Will return array of CriteriaInterface
      * that returns true in shouldBeApplied().
      *
-     * @return CriteriaInterface[]
+     * @return CriteriaCollectionInterface
      */
     public function getApplicableCriteria();
 
