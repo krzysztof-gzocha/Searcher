@@ -3,13 +3,14 @@
 namespace KGzocha\Searcher\Result;
 
 /**
+ * Will holds collection of results taken from searching process.
+ *
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
- * @package KGzocha\Searcher\Result
  */
 interface ResultCollectionInterface extends \Countable, \IteratorAggregate, \JsonSerializable
 {
     /**
-     * @return array
+     * @return \Traversable|array
      */
     public function getResults();
 }

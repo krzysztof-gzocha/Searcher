@@ -3,6 +3,7 @@
 namespace KGzocha\Searcher\Context\Elastica;
 
 use Elastica\Query;
+use Elastica\ResultSet;
 use Elastica\Search;
 use KGzocha\Searcher\Context\AbstractSearchingContext;
 
@@ -10,7 +11,6 @@ use KGzocha\Searcher\Context\AbstractSearchingContext;
  * Use this SearchingContext to search for results using Elastica library.
  *
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
- * @package KGzocha\Searcher\Context\Elastica
  */
 class QuerySearchingContext extends AbstractSearchingContext
 {
@@ -20,7 +20,7 @@ class QuerySearchingContext extends AbstractSearchingContext
     private $search;
 
     /**
-     * @param Query $query
+     * @param Query  $query
      * @param Search $search
      */
     public function __construct(
@@ -52,7 +52,7 @@ class QuerySearchingContext extends AbstractSearchingContext
     }
 
     /**
-     * @inheritDoc
+     * @return ResultSet
      */
     public function getResults()
     {
