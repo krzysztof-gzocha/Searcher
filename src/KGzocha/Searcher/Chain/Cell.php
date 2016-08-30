@@ -70,6 +70,14 @@ class Cell implements CellInterface
     /**
      * @return bool
      */
+    public function hasName()
+    {
+        return null !== $this->name;
+    }
+
+    /**
+     * @return bool
+     */
     public function hasTransformer()
     {
         return !$this->transformer instanceof EndTransformer;

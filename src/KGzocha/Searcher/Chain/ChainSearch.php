@@ -55,11 +55,11 @@ class ChainSearch implements SearcherInterface
             }
 
             $previousResults = $cell->getSearcher()->search($previousCriteria);
-            if ($cell->hasTransformer()) {
-                $previousCriteria = $cell
-                    ->getTransformer()
-                    ->transform($previousResults, $previousCriteria);
-            }
+            $previousCriteria = $this->getNewCriteria(
+                $cell,
+                $previousCriteria,
+                $previousResults
+            );
 
             $this->addResult($result, $cell, $previousResults);
         }
@@ -104,10 +104,34 @@ class ChainSearch implements SearcherInterface
         CellInterface $cell,
         $previousResults
     ) {
-        if ($cell->getName()) {
+        if ($cell->hasName()) {
             return $result->addNamedItem($cell->getName(), $previousResults);
         }
 
         return $result->addItem($previousResults);
+    }
+
+    /**
+     * If $cell has transformer then it will be used to return new criteria.
+     * If not old criteria will be returned.
+     *
+     * @param CellInterface               $cell
+     * @param CriteriaCollectionInterface $criteria
+     * @param mixed                       $results
+     *
+     * @return CriteriaCollectionInterface
+     */
+    private function getNewCriteria(
+        CellInterface $cell,
+        CriteriaCollectionInterface $criteria,
+        $results
+    ) {
+        if (!$cell->hasTransformer()) {
+            return $criteria;
+        }
+
+        return $cell
+            ->getTransformer()
+            ->transform($results, $criteria);
     }
 }

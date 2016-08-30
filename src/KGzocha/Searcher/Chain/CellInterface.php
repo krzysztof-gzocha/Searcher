@@ -22,6 +22,11 @@ interface CellInterface
     public function getTransformer();
 
     /**
+     * @return bool
+     */
+    public function hasName();
+
+    /**
      * @return null|string
      */
     public function getName();
