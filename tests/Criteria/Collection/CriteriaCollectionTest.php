@@ -72,6 +72,11 @@ class CriteriaCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(self::NUMBER_OF_QUERY_CRITERIA, $criteriaCollection->getCriteria());
     }
 
+    public function testTraversableParams()
+    {
+        new CriteriaCollection(new CriteriaCollection()); // Just some traversable object :)
+    }
+
     public function testFluentInterface()
     {
         $collection = new CriteriaCollection();

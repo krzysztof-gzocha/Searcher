@@ -2,8 +2,6 @@
 
 namespace KGzocha\Searcher;
 
-use Traversable;
-
 /**
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
  */
@@ -83,7 +81,7 @@ abstract class AbstractCollection implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @param string$name
+     * @param string $name
      *
      * @return mixed|null
      */
@@ -93,7 +91,7 @@ abstract class AbstractCollection implements \Countable, \IteratorAggregate
             return $this->items[$name];
         }
 
-        return;
+        return null;
     }
 
     /**
@@ -103,12 +101,18 @@ abstract class AbstractCollection implements \Countable, \IteratorAggregate
      */
     private function isTraversable($items)
     {
-        if (!is_array($items) && !$items instanceof \Traversable) {
-            throw new \InvalidArgumentException(sprintf(
-                'Argument passed to collection %s needs to be an array or traversable object',
-                get_class($this)
-            ));
+        if (is_array($items)) {
+            return;
         }
+
+        if ($items instanceof \Traversable) {
+            return;
+        }
+
+        throw new \InvalidArgumentException(sprintf(
+            'Argument passed to collection %s needs to be an array or traversable object',
+            get_class($this)
+        ));
     }
 
     /**

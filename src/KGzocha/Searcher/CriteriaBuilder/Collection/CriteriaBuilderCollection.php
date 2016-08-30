@@ -9,7 +9,7 @@ use KGzocha\Searcher\CriteriaBuilder\CriteriaBuilderInterface;
 /**
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
  */
-class CriteriaBuilderCollection extends AbstractCollection  implements
+class CriteriaBuilderCollection extends AbstractCollection implements
     CriteriaBuilderCollectionInterface
 {
     /**
