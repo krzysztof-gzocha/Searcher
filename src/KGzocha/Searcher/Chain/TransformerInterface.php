@@ -13,7 +13,7 @@ use KGzocha\Searcher\Criteria\Collection\CriteriaCollectionInterface;
 interface TransformerInterface
 {
     /**
-     * @param mixed $results
+     * @param mixed                       $results
      * @param CriteriaCollectionInterface $criteria
      *
      * @return CriteriaCollectionInterface

@@ -10,7 +10,7 @@ use KGzocha\Searcher\Criteria\CriteriaInterface;
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
  * @author Daniel Ribeiro <drgomesp@gmail.com>
  */
-interface CriteriaCollectionInterface extends \Countable, \IteratorAggregate
+interface CriteriaCollectionInterface
 {
     /**
      * Will return array of CriteriaInterface

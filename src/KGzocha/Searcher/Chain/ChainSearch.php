@@ -77,6 +77,7 @@ class ChainSearch implements SearcherInterface
 
     /**
      * @param CellInterface[] $cells
+     *
      * @throws \InvalidArgumentException
      */
     private function validateCells(array $cells)
