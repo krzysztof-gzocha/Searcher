@@ -40,14 +40,12 @@ class ResultCollectionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param mixed $inputArray
+     * @expectedException \InvalidArgumentException
      * @dataProvider numberOfWrongElementsProvider
      */
     public function testNumberOfWrongElements($inputArray)
     {
-        $result = new ResultCollection($inputArray);
-
-        $this->assertCount(0, $result);
-        $this->assertCount(0, $result->getResults());
+        new ResultCollection($inputArray);
     }
 
     public function numberOfWrongElementsProvider()

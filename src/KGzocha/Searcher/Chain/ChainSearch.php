@@ -45,34 +45,26 @@ class ChainSearch implements SearcherInterface
     public function search(
         CriteriaCollectionInterface $criteriaCollection
     ) {
-        $previousCriteria = null;
+        $previousCriteria = $criteriaCollection;
         $previousResults = null;
-        $resultsArray = [];
+        $result = new ResultCollection();
 
         foreach ($this->cells as $cell) {
             if ($cell->getTransformer()->skip($previousResults)) {
                 continue;
             }
 
-            // Assumed only for first iteration
-            if (!$previousCriteria) {
-                $previousCriteria = $criteriaCollection;
-            }
-
             $previousResults = $cell->getSearcher()->search($previousCriteria);
             if ($cell->hasTransformer()) {
-                $previousCriteria = $cell->getTransformer()->transform($previousResults, $previousCriteria);
+                $previousCriteria = $cell
+                    ->getTransformer()
+                    ->transform($previousResults, $previousCriteria);
             }
 
-            if ($cell->getName()) {
-                $resultsArray[$cell->getName()] = $previousResults;
-                continue;
-            }
-
-            array_push($resultsArray, $previousResults);
+            $this->addResult($result, $cell, $previousResults);
         }
 
-        return new ResultCollection($resultsArray);
+        return $result;
     }
 
     /**
@@ -89,14 +81,33 @@ class ChainSearch implements SearcherInterface
         }
 
         foreach ($cells as $cell) {
-            if (is_object($cell) && $cell instanceof CellInterface) {
+            if ($cell instanceof CellInterface) {
                 continue;
             }
 
             throw new \InvalidArgumentException(sprintf(
                 'All cells passed to %s should be object and must implement CellInterface',
-                __CLASS__
+                get_class($this)
             ));
         }
+    }
+
+    /**
+     * @param ResultCollection $result
+     * @param CellInterface    $cell
+     * @param mixed            $previousResults
+     *
+     * @return ResultCollection
+     */
+    private function addResult(
+        ResultCollection $result,
+        CellInterface $cell,
+        $previousResults
+    ) {
+        if ($cell->getName()) {
+            return $result->addNamedItem($cell->getName(), $previousResults);
+        }
+
+        return $result->addItem($previousResults);
     }
 }
