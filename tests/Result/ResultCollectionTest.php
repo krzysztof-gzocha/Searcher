@@ -1,6 +1,6 @@
 <?php
 
-namespace KGzocha\Searcher\Test\Result;
+namespace KGzocha\Searcher\Test\Chain\Collection;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use KGzocha\Searcher\Result\ResultCollection;

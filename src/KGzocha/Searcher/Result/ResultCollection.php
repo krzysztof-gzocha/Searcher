@@ -18,14 +18,6 @@ class ResultCollection extends AbstractCollection implements ResultCollectionInt
     /**
      * @inheritDoc
      */
-    public function addItem($item)
-    {
-        return parent::addItem($item);
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function addNamedItem($name, $item)
     {
         return parent::addNamedItem($name, $item);

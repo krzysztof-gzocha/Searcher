@@ -24,15 +24,5 @@ interface CellInterface
     /**
      * @return bool
      */
-    public function hasName();
-
-    /**
-     * @return null|string
-     */
-    public function getName();
-
-    /**
-     * @return bool
-     */
     public function hasTransformer();
 }
