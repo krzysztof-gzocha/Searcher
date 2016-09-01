@@ -20,6 +20,9 @@ class CellCollection extends AbstractCollection implements CellCollectionInterfa
         return $item instanceof CellInterface;
     }
 
+    /**
+     * @return \ArrayIterator
+     */
     public function getIterator()
     {
         $this->validateNumberOfCells();
@@ -27,6 +30,9 @@ class CellCollection extends AbstractCollection implements CellCollectionInterfa
         return parent::getIterator();
     }
 
+    /**
+     * @return CellInterface[]
+     */
     public function getCells()
     {
         $this->validateNumberOfCells();
@@ -34,16 +40,32 @@ class CellCollection extends AbstractCollection implements CellCollectionInterfa
         return $this->getItems();
     }
 
+    /**
+     * @param string $name
+     *
+     * @return CellInterface|null
+     */
     public function getNamedCell($name)
     {
         return $this->getNamedItem($name);
     }
 
+    /**
+     * @param CellInterface $item
+     *
+     * @return $this
+     */
     public function addCell(CellInterface $item)
     {
         return $this->addItem($item);
     }
 
+    /**
+     * @param string        $name
+     * @param CellInterface $cell
+     *
+     * @return $this
+     */
     public function addNamedCell($name, CellInterface $cell)
     {
         return $this->addNamedItem($name, $cell);
