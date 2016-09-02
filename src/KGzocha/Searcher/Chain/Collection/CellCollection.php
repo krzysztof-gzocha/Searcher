@@ -6,6 +6,9 @@ use KGzocha\Searcher\AbstractCollection;
 use KGzocha\Searcher\Chain\CellInterface;
 
 /**
+ * Collection of CellInterface objects. It will throw \InvalidArgumentException if tried to use it with less
+ * than MINIMUM_CELLS.
+ *
  * @author Krzysztof Gzocha <krzysztof@propertyfinder.ae>
  */
 class CellCollection extends AbstractCollection implements CellCollectionInterface
