@@ -69,7 +69,7 @@ class PaginationCriteria implements PaginationCriteriaInterface
      */
     public function shouldBeApplied(): bool
     {
-        return $this->page != 0 && $this->itemsPerPage != 0;
+        return $this->page !== 0 && $this->itemsPerPage !== 0;
     }
 
     /**
