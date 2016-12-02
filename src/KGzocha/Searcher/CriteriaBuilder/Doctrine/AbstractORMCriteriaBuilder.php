@@ -47,8 +47,7 @@ abstract class AbstractORMCriteriaBuilder implements CriteriaBuilderInterface
         string $join,
         string $alias,
         string $joinType
-    ): QueryBuilder
-    {
+    ): QueryBuilder{
         list($entity) = explode('.', $join);
 
         $joinParts = $queryBuilder->getDQLPart('join');
@@ -80,8 +79,7 @@ abstract class AbstractORMCriteriaBuilder implements CriteriaBuilderInterface
         string $alias,
         string $join,
         string $joinType
-    ): QueryBuilder
-    {
+    ): QueryBuilder {
         $existingJoin = array_filter(
             $joinParts,
             function (Join $joinObj) use ($alias, $join, $joinType) {

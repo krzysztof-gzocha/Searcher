@@ -20,8 +20,7 @@ abstract class AbstractQueryCriteriaBuilder implements CriteriaBuilderInterface
      */
     public function supportsSearchingContext(
         SearchingContextInterface $searchingContext
-    ): bool
-    {
+    ): bool {
         return $searchingContext instanceof QuerySearchingContext;
     }
 }

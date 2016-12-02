@@ -41,8 +41,7 @@ class CriteriaBuilderCollection extends AbstractCollection implements CriteriaBu
      */
     public function getCriteriaBuildersForContext(
         SearchingContextInterface $searchingContext
-    ): CriteriaBuilderCollectionInterface
-    {
+    ): CriteriaBuilderCollectionInterface {
         return new self(array_filter(
             $this->getItems(),
             function (CriteriaBuilderInterface $criteriaBuilder) use ($searchingContext) {

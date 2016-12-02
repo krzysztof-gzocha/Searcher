@@ -33,8 +33,7 @@ class WrappedResultsSearcher implements SearcherInterface
      */
     public function search(
         CriteriaCollectionInterface $criteriaCollection
-    ): ResultCollection
-    {
+    ): ResultCollection {
         return new ResultCollection(
             $this->searcher->search($criteriaCollection)
         );

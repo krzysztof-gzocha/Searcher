@@ -23,8 +23,7 @@ abstract class AbstractODMCriteriaBuilder implements CriteriaBuilderInterface
      */
     public function supportsSearchingContext(
         SearchingContextInterface $searchingContext
-    ): bool
-    {
+    ): bool {
         return $searchingContext instanceof ODMBuilderSearchingContext;
     }
 }

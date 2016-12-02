@@ -81,8 +81,7 @@ class ChainSearch implements SearcherInterface
         CellInterface $cell,
         CriteriaCollectionInterface $criteria,
         $results
-    ): CriteriaCollectionInterface
-    {
+    ): CriteriaCollectionInterface {
         if (!$cell->hasTransformer()) {
             return $criteria;
         }
