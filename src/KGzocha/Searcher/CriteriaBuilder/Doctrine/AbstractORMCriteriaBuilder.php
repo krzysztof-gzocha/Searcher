@@ -24,8 +24,7 @@ abstract class AbstractORMCriteriaBuilder implements CriteriaBuilderInterface
      */
     public function supportsSearchingContext(
         SearchingContextInterface $searchingContext
-    ): bool
-    {
+    ): bool {
         return $searchingContext instanceof QueryBuilderSearchingContext;
     }
 
@@ -47,7 +46,7 @@ abstract class AbstractORMCriteriaBuilder implements CriteriaBuilderInterface
         string $join,
         string $alias,
         string $joinType
-    ): QueryBuilder{
+    ): QueryBuilder {
         list($entity) = explode('.', $join);
 
         $joinParts = $queryBuilder->getDQLPart('join');
